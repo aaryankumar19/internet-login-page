@@ -1,0 +1,25 @@
+{
+    "action": {
+        "default_popup": ""
+    },
+    "content_scripts": [
+        {
+            "js": [ "autologin.js" ],
+            "matches": [ "https://internet.lpu.in/*", "http://10.0.0.1/*" ]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["images/nazi-logo.png","images/hitler.jpg"],
+          "matches": ["<all_urls>"]
+        }
+    ],
+    "description": "To login automatically in WIFI-Internet",
+    "manifest_version": 3,
+    "name": "Internet-login",
+    "permissions": [ "activeTab", "storage"],
+    "version": "1.0.0"
+}
