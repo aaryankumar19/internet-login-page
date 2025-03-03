@@ -28,7 +28,7 @@ function isLoggedOut() {
       // if (passwordField) {
       //   passwordField.value = atob(chrome.storage.local.get("password"));
       // }
-      fillUsernameField();
+      // fillUsernameField();
 
     }, 600);
   
