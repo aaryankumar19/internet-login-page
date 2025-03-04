@@ -1,61 +1,70 @@
 function isLoggedOut() {
-    const loginButton = document.getElementById('loginbtn');
-    const usernameField = document.querySelector('input[name="username"]');
-    return loginButton && usernameField;
+  const loginButton = document.getElementById('loginbtn');
+  const usernameField = document.querySelector('input[name="username"]');
+  return loginButton !== null && usernameField !== null; // Fix: Return boolean
+}
+
+function autoSignIn() {
+  if (!isLoggedOut()) {
+    return;
   }
-  
-  function autoSignIn() {
-    if (!isLoggedOut()) {
-      return;
+
+  setTimeout(() => {
+    const policyCheckbox = document.getElementById('agreepolicy');
+    if (policyCheckbox && !policyCheckbox.checked) {
+      policyCheckbox.click();
     }
-  
-    setTimeout(() => {
-      const policyCheckbox = document.getElementById('agreepolicy');
-      if (policyCheckbox && !policyCheckbox.checked) {
-        policyCheckbox.click();
-      }
-    }, 200);
-  
-    setTimeout(() => {
+  }, 200);
+
+  setTimeout(async () => {
+    const usernameField = document.querySelector('input[name="username"]');
+    if (usernameField) {
+      chrome.storage.local.get("id", (result) => {
+        if (result.id) {
+          usernameField.value = parseInt(atob(result.id)); // Fix: Correct async handling
+        }
+      });
+    }
+  }, 400);
+
+  setTimeout(async () => {
+    const passwordField = document.querySelector('input[name="password"]');
+    if (passwordField) {
+      chrome.storage.local.get("password", (result) => {
+        if (result.password) {
+          passwordField.value = atob(result.password); // Fix: Correct async handling
+        }
+      });
+    }
+  }, 600);
+
+  setTimeout(() => {
+    const loginButton = document.getElementById('loginbtn');
+    if (loginButton) {
+      loginButton.click();
+    }
+  }, 800);
+}
+
+document.addEventListener('dblclick', () => {
+  if (navigator.onLine) {
+    autoSignIn();
+    document.removeEventListener('dblclick', autoSignIn); // Prevent multiple executions
+  }
+});
+
+// Async function for filling username
+async function fillUsernameField() {
+  chrome.storage.local.get("id", (result) => {
+    if (result.id) {
       const usernameField = document.querySelector('input[name="username"]');
       if (usernameField) {
-        usernameField.value = parseInt(atob(chrome.storage.local.get("id")));
+        usernameField.value = atob(result.id);
       }
-    }, 400);
-  
-    setTimeout(() => {
-      // const passwordField = document.querySelector('input[name="password"]');
-      // if (passwordField) {
-      //   passwordField.value = atob(chrome.storage.local.get("password"));
-      // }
-      fillUsernameField();
-
-    }, 600);
-  
-    setTimeout(() => {
-      const loginButton = document.getElementById('loginbtn');
-      if (loginButton) {
-        loginButton.click();
-      }
-    }, 800);
-  }
-  
-  document.addEventListener('dblclick', () => {
-    if (navigator.onLine) {
-      autoSignIn();
     }
   });
-  
-
-  async function fillUsernameField() {
-    const result = await chrome.storage.local.get("id");
-    if (result.id) {
-        const usernameField = document.querySelector('input[name="username"]');
-        if (usernameField) {
-            usernameField.value = atob(result.id);
-        }
-    }
 }
+
 
 // Get the image URL from the extension's directory
 const image1 = chrome.runtime.getURL("images/hitler.jpg");
