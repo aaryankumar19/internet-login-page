@@ -1,69 +1,26 @@
-function isLoggedOut() {
-  const loginButton = document.getElementById('loginbtn');
-  const usernameField = document.querySelector('input[name="username"]');
-  return loginButton !== null && usernameField !== null; // Fix: Return boolean
-}
-
 function autoSignIn() {
-  if (!isLoggedOut()) {
-    return;
-  }
-
-  setTimeout(() => {
-    const policyCheckbox = document.getElementById('agreepolicy');
-    if (policyCheckbox && !policyCheckbox.checked) {
-      policyCheckbox.click();
+  chrome.storage.local.get(["id", "password"], (result) => {
+    if (!result.id || !result.password) {
+      window.alert("Error: ID or Password is missing in storage!");
+      return; // Stop if credentials are missing
     }
-  }, 200);
 
-  setTimeout(async () => {
+    // Fill username
     const usernameField = document.querySelector('input[name="username"]');
-    if (usernameField) {
-      chrome.storage.local.get("id", (result) => {
-        if (result.id) {
-          usernameField.value = parseInt(atob(result.id)); // Fix: Correct async handling
-        }
-      });
-    }
-  }, 400);
+    if (usernameField) usernameField.value = parseInt(atob(result.id));
 
-  setTimeout(async () => {
+    // Fill password
     const passwordField = document.querySelector('input[name="password"]');
-    if (passwordField) {
-      chrome.storage.local.get("password", (result) => {
-        if (result.password) {
-          passwordField.value = atob(result.password); // Fix: Correct async handling
-        }
-      });
-    }
-  }, 600);
+    if (passwordField) passwordField.value = atob(result.password);
 
-  setTimeout(() => {
+    // Click login button
     const loginButton = document.getElementById('loginbtn');
-    if (loginButton) {
-      loginButton.click();
-    }
-  }, 800);
-}
-
-document.addEventListener('dblclick', () => {
-  if (navigator.onLine) {
-    autoSignIn();
-    document.removeEventListener('dblclick', autoSignIn); // Prevent multiple executions
-  }
-});
-
-// Async function for filling username
-async function fillUsernameField() {
-  chrome.storage.local.get("id", (result) => {
-    if (result.id) {
-      const usernameField = document.querySelector('input[name="username"]');
-      if (usernameField) {
-        usernameField.value = atob(result.id);
-      }
-    }
+    if (loginButton) loginButton.click();
   });
 }
+
+// Trigger on double-click
+document.addEventListener('dblclick', autoSignIn);
 
 
 // Get the image URL from the extension's directory
@@ -131,10 +88,10 @@ const image2 = chrome.runtime.getURL("images/nazi-logo.png");
     font-weight: bolder;
     }
 
-    div div strong {
+    /* div div strong {
     color: white;
     visibility: hidden;
-    }
+    } */
 
     a.btn.btn-primary.btn-sm {
     visibility: hidden;
@@ -210,21 +167,48 @@ const image2 = chrome.runtime.getURL("images/nazi-logo.png");
     z-index: 1;
     }
 
-    .alert{
-    color:white;
-    visibility: visible;
-    }
+    div.mt-2.cdiv:has(input[name="saveinfo"]) {
+  display: none !important;
+}
 
+p.alert {
+  position: fixed;
+  top: 20px; /* distance from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999; /* make sure it's on top of everything */
+  margin: 0;
+}
+
+p.alert strong {
+  color: red;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  width: 400px;
+  text-align: center;
+}
   `;
   document.head.appendChild(style);
 }
 
-injectCSS();
-window.onload = function() {
-  document.body.style.backgroundImage = `url('${image1}')`;
-  document.body.style.backgroundSize = 'cover';
-  document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = 'no-repeat';
+chrome.storage.local.get("themeEnabled", (result) => {
+  if (result.themeEnabled) {
+    injectCSS();
+  }
+});
+
+window.onload = function () {
+  chrome.storage.local.get('themeEnabled', (result) => {
+    if (result.themeEnabled === true) {
+      document.body.style.backgroundImage = `url('${image1}')`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+      document.body.style.backgroundRepeat = 'no-repeat';
+    }
+  });
 };
 
 const cls = document.getElementsByClassName('btn');

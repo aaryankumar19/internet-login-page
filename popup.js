@@ -19,3 +19,4 @@ document.getElementById("saveCredentials").addEventListener("click", async funct
     });
     window.close();
 });
+
