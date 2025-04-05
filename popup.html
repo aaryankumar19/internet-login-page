@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Save Credentials</title>
     <style>
-        /* General Styles */
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
         }
 
-        /* Form Container */
         #form-container {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            width: 320px;
+            box-sizing: border-box;
         }
 
-        /* Labels */
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+
         label {
             font-size: 14px;
             font-weight: bold;
@@ -36,44 +41,40 @@
             text-align: left;
         }
 
-        /* Input Fields */
-        input {
+        input[type="text"],
+        input[type="number"],
+        input[type="password"] {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 10px;
             font-size: 14px;
-            outline: none;
-            transition: 0.3s;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
         }
 
-        input:focus {
-            border-color: #007bff;
-        }
-
-        /* Button */
         button {
             width: 100%;
-            background-color: #007bff;
-            color: white;
-            border: none;
             padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
+            background-color: #2962ff;
+            color: white;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 15px;
-            transition: 0.3s;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #0039cb;
         }
     </style>
 </head>
+
 <body>
     <div id="form-container">
-        <form id="form-main">
-            <label for="reg_id">Registration Number</label>
+        <form id="form-main">\
+            <label for="reg_id">ID</label>
             <input type="number" id="reg_id" name="reg_id" required>
 
             <label for="pwd">Password</label>
@@ -85,4 +86,5 @@
 
     <script src="popup.js"></script>
 </body>
+
 </html>

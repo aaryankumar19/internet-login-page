@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manage Credentials</title>
+  <script src="popupmain.js" defer></script>
+  <style>
+    body {
+      text-align: center;
+      padding: 20px;
+      height: 280px;
+      width: 250px;
+      font-family: Arial, sans-serif;
+    }
+
+    input, button {
+      margin-top: 10px;
+      padding: 8px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #status {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Manage Your Login</h2>
+
+  <!-- Form to save credentials -->
+  <div id="save-section" style="display: none;">
+    <input type="number" id="reg_id" placeholder="Registration Number" required />
+    <input type="password" id="pwd" placeholder="Password" required />
+    <button id="saveBtn">Save Credentials</button>
+  </div>
+
+  <!-- Reset credentials section -->
+  <div id="reset-section" style="display: none;">
+    <button id="resetBtn">Reset ID / Password</button>
+  </div>
+
+  <p id="status"></p>
+
+  <hr style="margin: 20px 0;">
+
+  <!-- Theme toggle -->
+  <label>
+    <input type="checkbox" id="themeToggle" />
+    Enable Custom Theme
+  </label>
+</body>
+</html>

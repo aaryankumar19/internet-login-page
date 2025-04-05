@@ -1,11 +1,11 @@
 {
     "action": {
-        "default_popup": ""
+        "default_popup": "popupmain.html"
     },
     "content_scripts": [
         {
             "js": [ "autologin.js" ],
-            "matches": [ "https://internet.lpu.in/*", "http://10.0.0.1/*" ]
+            "matches": [ "https://internet.lpu.in/*", "*://*/24online/webpages/client.jsp*" ]
         }
     ],
     "background": {
