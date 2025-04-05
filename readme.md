@@ -23,28 +23,21 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
    ```
    git clone https://github.com/yourusername/24online-auto-login.git
    ```
-Go to Chrome Extensions: Open chrome://extensions/ in your browser.
+2. **Go to Chrome Extensions: Open chrome://extensions/ in your browser.**
+3. **Enable Developer Mode: Toggle the switch in the top-right corner.**
+4. **Load the extension: Click "Load unpacked" and select the folder you just cloned.**
+5. **Done! On first install, a popup will ask you to enter your ID and password.**
+6. **Enter your ID/Password and proceed.**
 
-Enable Developer Mode: Toggle the switch in the top-right corner.
+## 🚀 How to Use
+1. **Connect with LPU offical WIFI.**
+2. **Open the 24Online login page: `http://internet.lpu.in`**
+3. **Double-click anywhere on the page – the extension will automatically fill in your credentials and log you in.**
+4. **To update or reset your saved credentials, click the extension icon in the toolbar and use the popup.**
 
-Load the extension: Click "Load unpacked" and select the folder you just cloned.
-
-Done! On first install, a popup will ask you to enter your ID and password.
-
-Enter your ID/Password and proceed.
-
-# 🚀 How to Use
-Connect with LPU offical WIFI.
-
-Open the 24Online login page: http://internet.lpu.in
-
-Double-click anywhere on the page – the extension will automatically fill in your credentials and log you in.
-
-To update or reset your saved credentials, click the extension icon in the toolbar and use the popup.
-
-⚠️ Note
+**⚠️ Note
 This is a personal project built for ease login using the 24Online system.
 It is not affiliated with or endorsed by Lovely Professional University or the 24Online service.
 
-Just trying to save a few clicks 🙃
+Just trying to save a few clicks 🙃**
 
