@@ -14,13 +14,10 @@ Optional theme injection (toggle in popup)
 
 🛠️ How to Install
 Download or clone this repo:
-
-bash
-Copy
-Edit
+```
 git clone https://github.com/yourusername/24online-auto-login.git
 Go to chrome://extensions/ in your browser
-
+```
 Enable Developer mode (top-right toggle)
 
 Click "Load unpacked" and select this folder
