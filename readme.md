@@ -29,6 +29,8 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 5. **Done! On first install, a popup will ask you to enter your ID and password.**
 6. **Enter your ID/Password and proceed.**
 
+---
+
 ## 🚀 How to Use
 1. **Connect with LPU offical WIFI.**
 2. **Open the 24Online login page: `http://internet.lpu.in`**
