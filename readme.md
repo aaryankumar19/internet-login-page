@@ -1,7 +1,7 @@
 # LPU Auto Login Extension for Captive Portal
 
 A small Chrome extension made specifically for LPU's 24Online login portal. It auto-fills your ID and password and logs you in with a double-click.  
-- 🎭 Includes a satirical **"Nazi-style" theme** — just for fun, not intended to offend or promote any ideology.  
+- 🎭 Includes a **"Nazi-style" theme** — just for fun, not intended to offend or promote any ideology.  
   Not affiliated with or endorsed by LPU or any institution.
 
 ---
@@ -34,6 +34,13 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 2. **Open the 24Online login page: `http://internet.lpu.in`**
 3. **Double-click anywhere on the page – the extension will automatically fill in your credentials and log you in.**
 4. **To update or reset your saved credentials, click the extension icon in the toolbar and use the popup.**
+
+---
+
+## 🤝 Open for Collaboration
+
+Got ideas, improvements, or want to contribute?  
+Feel free to open an issue or submit a pull request — contributions are welcome!
 
 ---
 
