@@ -43,4 +43,4 @@ It is not affiliated with or endorsed by Lovely Professional University or the 2
 
 Just trying to save a few clicks 🙃**
 
-> 🧩 You’re free to modify the code or customize the CSS to suit your style. Go wild!
+> 🧩 You’re free to modify the code or customize the CSS to suit your style.
