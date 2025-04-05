@@ -2,34 +2,29 @@ function autoSignIn() {
   chrome.storage.local.get(["id", "password"], (result) => {
     if (!result.id || !result.password) {
       window.alert("Error: ID or Password is missing in storage!");
-      return; // Stop if credentials are missing
+      return;
     }
 
-    // Fill username
     const usernameField = document.querySelector('input[name="username"]');
     if (usernameField) usernameField.value = parseInt(atob(result.id));
 
-    // Fill password
     const passwordField = document.querySelector('input[name="password"]');
     if (passwordField) passwordField.value = atob(result.password);
 
-    // Click login button
-    const loginButton = document.getElementById('loginbtn');
+    const loginButton = document.getElementById("loginbtn");
     if (loginButton) loginButton.click();
   });
 }
 
 // Trigger on double-click
-document.addEventListener('dblclick', autoSignIn);
-
+document.addEventListener("dblclick", autoSignIn);
 
 // Get the image URL from the extension's directory
 const image1 = chrome.runtime.getURL("images/hitler.jpg");
 const image2 = chrome.runtime.getURL("images/nazi-logo.png");
 
-  
-  function injectCSS() {
-  const style = document.createElement('style');
+function injectCSS() {
+  const style = document.createElement("style");
   style.textContent = `
     button.btn.btn-primary.btn-sm {
     background-color: white;
@@ -116,13 +111,12 @@ const image2 = chrome.runtime.getURL("images/nazi-logo.png");
     transition: background-color 0.3s, color 0.3s;
     }
 
-.buttonstyle:hover {
-  background-color: rgba(51, 51, 51, 0.6);
-  color: rgba(255, 255, 255, 1);
-  font-size: 26px;
-  font-weight: bold;
-}
-
+    .buttonstyle:hover {
+      background-color: rgba(51, 51, 51, 0.6);
+      color: rgba(255, 255, 255, 1);
+      font-size: 26px;
+      font-weight: bold;
+    }
 
     input.buttonstyle {
     width: 23.5%;
@@ -168,28 +162,28 @@ const image2 = chrome.runtime.getURL("images/nazi-logo.png");
     }
 
     div.mt-2.cdiv:has(input[name="saveinfo"]) {
-  display: none !important;
-}
+    display: none !important;
+    }
 
-p.alert {
-  position: fixed;
-  top: 20px; /* distance from the top */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999; /* make sure it's on top of everything */
-  margin: 0;
-}
+    p.alert {
+      position: fixed;
+      top: 20px; /* distance from the top */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999; /* make sure it's on top of everything */
+      margin: 0;
+    }
 
-p.alert strong {
-  color: red;
-  background-color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  display: inline-block;
-  width: 400px;
-  text-align: center;
-}
+    p.alert strong {
+      color: red;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      width: 400px;
+      text-align: center;
+    } 
   `;
   document.head.appendChild(style);
 }
@@ -201,18 +195,18 @@ chrome.storage.local.get("themeEnabled", (result) => {
 });
 
 window.onload = function () {
-  chrome.storage.local.get('themeEnabled', (result) => {
+  chrome.storage.local.get("themeEnabled", (result) => {
     if (result.themeEnabled === true) {
       document.body.style.backgroundImage = `url('${image1}')`;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundPosition = 'center';
-      document.body.style.backgroundRepeat = 'no-repeat';
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
     }
   });
 };
 
-const cls = document.getElementsByClassName('btn');
+const cls = document.getElementsByClassName("btn");
 
-for(var i = 0; i < cls.length; i++){
-  cls[i].removeAttribute("disabled"); 
+for (var i = 0; i < cls.length; i++) {
+  cls[i].removeAttribute("disabled");
 }
