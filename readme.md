@@ -49,6 +49,6 @@ Feel free to open an issue or submit a pull request — contributions are welcom
 This is a personal project built for ease login using the LPU's Captive Portal.
 It is not affiliated with or endorsed by Lovely Professional University or the 24Online service.
 
-Just trying to save a few clicks 🙃**
+**Just trying to save a few clicks 🙃**
 
-> 🧩 You’re free to modify the code or customize the CSS to suit your style.
+> 🧩 You’re free to modify the code or customize the CSS to suit your style. Just clone the repo and style it your way!
