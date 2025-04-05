@@ -8,7 +8,7 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 
 ## 💡 Features
 
-- ✅ Auto login on `internet.lpu.in`
+- ✅ Double Click Auto login on `internet.lpu.in`
 - 💾 Save your ID and password locally
 - 🔄 Reset credentials anytime
 - 🎨 Optional theme injection (toggle in popup)
@@ -35,9 +35,10 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 3. **Double-click anywhere on the page – the extension will automatically fill in your credentials and log you in.**
 4. **To update or reset your saved credentials, click the extension icon in the toolbar and use the popup.**
 
-**⚠️ Note
-This is a personal project built for ease login using the 24Online system.
+---
+
+⚠️ **Note**
+This is a personal project built for ease login using the LPU's Captive Portal.
 It is not affiliated with or endorsed by Lovely Professional University or the 24Online service.
 
 Just trying to save a few clicks 🙃**
-
