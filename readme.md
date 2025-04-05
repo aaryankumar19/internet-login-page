@@ -38,7 +38,6 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 ---
 
 ## 🤝 Open for Collaboration
-
 Got ideas, improvements, or want to contribute?  
 Feel free to open an issue or submit a pull request — contributions are welcome!
 
