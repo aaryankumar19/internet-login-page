@@ -21,7 +21,7 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 
 1. **Download or clone this repo:**
    ```
-   git clone https://github.com/yourusername/24online-auto-login.git
+   git clone https://github.com/aaryankumar19/24online-auto-login.git
    ```
 2. **Go to Chrome Extensions: Open chrome://extensions/ in your browser.**
 3. **Enable Developer Mode: Toggle the switch in the top-right corner.**
