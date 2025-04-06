@@ -40,7 +40,7 @@ A small Chrome extension made specifically for LPU's 24Online login portal. It a
 ---
 
 ⚠️ **Note** :
-This is a personal project built for ease login using the LPU's Captive Portal.
+This is a personal project built for ease login on the LPU's Internet Captive Portal.
 It is not affiliated with or endorsed by Lovely Professional University or the 24Online service.
 
 **Just trying to save a few clicks 🙃**
