@@ -183,7 +183,25 @@ function injectCSS() {
       display: inline-block;
       width: 400px;
       text-align: center;
-    } 
+    }
+    
+    #jsena > table > tbody > tr > td > div.container > div > div.col-lg-4.login-field > div:nth-child(1) > p {
+ color: red;
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      width: 400px;
+      text-align: center;
+      position: fixed;
+      top: 0; /* move it to the top */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      margin-top:20px;
+}
+
   `;
   document.head.appendChild(style);
 }
