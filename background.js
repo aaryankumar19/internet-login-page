@@ -13,4 +13,10 @@ chrome.runtime.onInstalled.addListener(() => {
       }
     });
   });
-  
+ 
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  if (tab.url && tab.url.startsWith("https://internet.lpu.in/24online/webpages/waitrequest.jsp")) {
+    chrome.tabs.remove(tabId);
+  }
+});
