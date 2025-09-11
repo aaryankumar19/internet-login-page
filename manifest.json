@@ -5,7 +5,7 @@
     "content_scripts": [
         {
             "js": [ "autologin.js" ],
-            "matches": [ "https://internet.lpu.in/*", "*://*/24online/webpages/client.jsp*" ]
+            "matches": [ "https://internet.lpu.in/*", "*://*/24online/webpages/client.jsp*", "*://*/24online/webpages/waitrequest.jsp" ]
         }
     ],
     "background": {
@@ -20,6 +20,6 @@
     "description": "To login automatically in WIFI-Internet",
     "manifest_version": 3,
     "name": "Internet-login",
-    "permissions": [ "activeTab", "storage"],
+    "permissions": [ "activeTab", "storage", "tabs"],
     "version": "1.0.0"
 }
