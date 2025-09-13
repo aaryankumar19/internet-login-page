@@ -16,40 +16,43 @@ chrome.runtime.onInstalled.addListener(() => {
   });
  
 
-// Listen for tab updates
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url) {
-    // URL pattern matching
     if (shouldCloseTab(tab.url)) {
-      chrome.tabs.remove(tabId, () => {
-        if (chrome.runtime.lastError) {
-          console.error('Error closing tab:', chrome.runtime.lastError);
-        } 
+      closeTab(tabId, tab.url);
+      chrome.tabs.create({ url: "chrome://newtab/" }, () => {
+        closeAllLpuTabs();
       });
     }
   }
 });
 
-// Listen for new tab creation
 chrome.tabs.onCreated.addListener((tab) => {
-  // URL patterns
   if (tab.url && shouldCloseTab(tab.url)) {
-    chrome.tabs.remove(tab.id, () => {
-      if (chrome.runtime.lastError) {
-        console.error('Error closing new tab:', chrome.runtime.lastError);
-      } else {
-        console.log('Closed new tab with URL:', tab.url);
-      }
+    closeTab(tab.id, tab.url);
+    chrome.tabs.create({ url: "chrome://newtab/" }, () => {
+      closeAllLpuTabs();
     });
   }
 });
 
-//check if the annoyingg tab should be closed
-function shouldCloseTab(url) {
-  if (url.includes('24online/webpages/waitrequest.jsp')) {
-    return true;
-  }
-  
-  return false;
+function closeTab(tabId, url = null) {
+  chrome.tabs.remove(tabId, () => {
+    if (chrome.runtime.lastError) {
+      console.error('Error closing tab:', chrome.runtime.lastError);
+    } else if (url) {
+      console.log('Closed tab with URL:', url);
+    }
+  });
 }
 
+function shouldCloseTab(url) {
+  return url.includes('24online/webpages/waitrequest.jsp');
+}
+
+function closeAllLpuTabs() {
+  chrome.tabs.query({}, (tabs) => {
+    const lpuTabs = tabs.filter(t => t.url && t.url.includes('internet.lpu.in'));
+    lpuTabs.forEach(t => closeTab(t.id, t.url));
+  });
+}

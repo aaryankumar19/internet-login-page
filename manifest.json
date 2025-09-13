@@ -5,7 +5,12 @@
     "content_scripts": [
         {
             "js": [ "autologin.js" ],
-            "matches": [ "https://internet.lpu.in/*", "*://*/24online/webpages/client.jsp*", "*://*/24online/webpages/waitrequest.jsp" ]
+            "matches": [
+            "https://internet.lpu.in/*",
+            "*://*/24online/webpages/client.jsp*",
+            "*://*/24online/webpages/waitrequest.jsp*",
+            "*://*/24online/servlet/E24onlineHTTPClient*"
+            ]
         }
     ],
     "background": {
