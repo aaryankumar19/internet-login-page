@@ -11,6 +11,9 @@ function autoSignIn() {
     const passwordField = document.querySelector('input[name="password"]');
     if (passwordField) passwordField.value = atob(result.password);
 
+    const policyBox = document.getElementById("agreepolicy");
+    if(policyBox) policyBox.click();
+
     const loginButton = document.getElementById("loginbtn");
     if (loginButton) loginButton.click();
   });
