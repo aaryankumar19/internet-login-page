@@ -7,16 +7,18 @@ document.getElementById("saveCredentials").addEventListener("click", async funct
         return;
     }
 
-    chrome.storage.local.set({
-        "id": btoa(reg_id),
-        "password": btoa(pwd)
-    }, function(){
-        if (chrome.runtime.lastError) {
-            console.error("Error saving data:", chrome.runtime.lastError);
-        } else {
-            console.log("Credentials saved securely.");
+    chrome.storage.local.get("accounts", (result) => {
+        let accounts = Array.isArray(result.accounts) ? result.accounts : [];
+        if (!accounts.some(a => a.id === btoa(reg_id))) {
+            accounts.push({ id: btoa(reg_id), password: btoa(pwd), isDefault: accounts.length === 0 });
         }
+        chrome.storage.local.set({ accounts: accounts }, () => {
+            if (chrome.runtime.lastError) {
+                console.error("Error saving data:", chrome.runtime.lastError);
+            } else {
+                console.log("Credentials saved securely.");
+            }
+            window.close();
+        });
     });
-    window.close();
 });
-

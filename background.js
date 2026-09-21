@@ -1,7 +1,8 @@
 // Pop up window for saving id/pass when the extension is loaded firsttime
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.local.get('id', (result) => {
-      if (!result.id) {
+    chrome.storage.local.get(['id', 'accounts'], (result) => {
+      const hasCredentials = result.id || (Array.isArray(result.accounts) && result.accounts.length > 0);
+      if (!hasCredentials) {
         chrome.windows.create({
           url: chrome.runtime.getURL("popup.html"),
           type: "popup",

@@ -16,15 +16,9 @@
     "background": {
         "service_worker": "background.js"
     },
-    "web_accessible_resources": [
-        {
-          "resources": ["images/nazi-logo.png","images/hitler.jpg"],
-          "matches": ["<all_urls>"]
-        }
-    ],
     "description": "To login automatically in WIFI-Internet",
     "manifest_version": 3,
     "name": "Internet-login",
     "permissions": [ "activeTab", "storage", "tabs"],
-    "version": "1.0.0"
+    "version": "2.0.0"
 }
